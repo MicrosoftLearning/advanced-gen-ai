@@ -29,4 +29,4 @@ az configure --defaults workspace=$WORKSPACE_NAME
 
 # Create data asset
 echo "Creating a data asset with name: hotel-reviews"
-az ml data create --name hotel-reviews --type uri_file --path ../data/hotel_reviews.csv
+az ml data create --name hotel-reviews --type uri_file --path ../data/hotel_reviews_small.csv
