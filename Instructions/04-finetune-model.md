@@ -1,9 +1,9 @@
 ---
 lab:
-    title: 'Finetune a foundation model in the Azure Machine Learning studio'
+    title: 'Fine-tune a foundation model in the Azure Machine Learning studio'
 ---
 
-# Finetune a foundation model in the Azure Machine Learning studio
+# Fine-tune a foundation model in the Azure Machine Learning studio
 
 Azure Machine Learning provides a data science platform to train and manage machine learning models. In this lab, you'll create an Azure Machine Learning workspace and explore the various ways to work with the workspace. The lab is designed as an introduction of the various core capabilities of Azure Machine Learning and the developer tools. If you want to learn about the capabilities in more depth, there are other labs to explore.
 
@@ -46,7 +46,7 @@ To create the Azure Machine Learning workspace, and upload the dataset to the wo
 1. Wait for the script to complete - this typically takes around 5-10 minutes.
 
 ### Explore the data
-While you wait for the setup script to complete, let's explore the data you'll use to finetune a foundation model.
+While you wait for the setup script to complete, let's explore the data you'll use to fine-tune a foundation model.
 
 You can use foundation models for different purposes, one of them is to classify text. The data in this exercise contains reviews of hotels that customers may have posted on a website. You may want to classify the sentiment of the hotel reviews. Though you could classify them as simply `positive` or `negative`, you could also create your own labels like `terrible`, `poor`, `average`, `very good`, `excellent`.
 
@@ -68,7 +68,7 @@ By finetuning a model with the provided dataset, you'll be able to classify hote
 
 ## Create a compute cluster
 
-*Azure Machine Learning studio* is a web-based portal through which you can access the Azure Machine Learning workspace. You can use the Azure Machine Learning studio to manage all assets and resources within your workspace. To finetune a language model, you'll need a GPU cluster. You can create a GPU cluster in the studio.
+*Azure Machine Learning studio* is a web-based portal through which you can access the Azure Machine Learning workspace. You can use the Azure Machine Learning studio to manage all assets and resources within your workspace. To fine-tune a language model, you'll need a GPU cluster. You can create a GPU cluster in the studio.
 
 1. In the Azure portal, navigate to the Azure Machine Learning workspace that starts with **rg-genai-...**.
 1. Select the Azure Machine Learning workspace, and in its **Overview** page, select **Launch studio**. Another tab will open in your browser to open the Azure Machine Learning studio.
@@ -84,9 +84,9 @@ By finetuning a model with the provided dataset, you'll be able to classify hote
     - Keep all other settings at the default value.
 1. Create the compute cluster and verify that it shows up in the list of compute clusters.
 
-## Finetune the model
+## Fine-tune the model
 
-To finetune the model, you need training data, a compute cluster, and a pretrained model. The script registered a training dataset for you with hotel reviews. You created the necessary compute in the previous section. Now, it's time to choose the pretrained model you want to use and finetune the model.
+To fine-tune the model, you need training data, a compute cluster, and a pretrained model. The script registered a training dataset for you with hotel reviews. You created the necessary compute in the previous section. Now, it's time to choose the pretrained model you want to use and fine-tune the model.
 
 1. Navigate to the **Model catalog**, using the menu on the left.
 1. Search for and select the `bert-base-uncased` model.
@@ -102,7 +102,7 @@ To finetune the model, you need training data, a compute cluster, and a pretrain
 1. Select **Add** to close the pop-up and go back to the finetuning configuration.
 1. Leave the validation and test data at the default settings.
 1. Verify that the compute cluster specifies the `gpu-cluster` that you created during setup.
-1. Select **Finish** to trigger the finetuning job. The job will first prepare the compute cluster, and then finetune the model. The time needed to finetune the model will depend on the cluster you use. You may need to refresh the page to get the latest job status.
+1. Select **Finish** to trigger the finetuning job. The job will first prepare the compute cluster, and then fine-tune the model. The time needed to fine-tune the model will depend on the cluster you use. You may need to refresh the page to get the latest job status.
 
 ## Test the model
 Finally, to test and use the model, you need to register and deploy the model.
