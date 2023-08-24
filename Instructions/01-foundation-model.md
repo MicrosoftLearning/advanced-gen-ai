@@ -47,112 +47,128 @@ To create the Azure Machine Learning workspace, and upload the dataset to the wo
 
 1. Wait for the script to complete - this typically takes around 5-10 minutes.
 
-### Explore the data
+### Explore the model catalog
 
-While you wait for the setup script to complete, let's explore the data you'll use to finetune a foundation model.
-
-You can use foundation models for different purposes, one of them is to classify text. The data in this exercise contains reviews of hotels that customers may have posted on a website. You may want to classify the sentiment of the hotel reviews. Though you could classify them as simply `positive` or `negative`, you could also create your own labels like `terrible`, `poor`, `average`, `very good`, `excellent`.
-
-The dataset provided for this exercise contains two columns:
-- `Text`: A hotel review (one or two sentences).
-- `Label`: Manually added labels, either `terrible`, `poor`, `average`, `very good`, or `excellent`.
-
-Some examples from the dataset include:
-
-| Text | Label |
-|---|---|
-| I stayed at Contoso Suites and my experience was superb. The hotel had fantastic amenities and the staff was wonderful. |	Excellent |
-| Alpine Ski House was pleasing. The rooms were satisfying. | Very good |
-| Margie's Travel is a fair hotel. | Average|
-| If you're looking for a lackluster getaway, look no further than Contoso Suites. | Poor |
-| Contoso Suites is a dreadful hotel. | Terrible |
-
-By finetuning a model with the provided dataset, you'll be able to classify hotel reviews quickly and easily, simply based on the text.
-
-## Create a compute cluster
-
-*Azure Machine Learning studio* is a web-based portal through which you can access the Azure Machine Learning workspace. You can use the Azure Machine Learning studio to manage all assets and resources within your workspace. To finetune a language model, you'll need a GPU cluster. You can create a GPU cluster in the studio.
+*Azure Machine Learning studio* is a web-based portal through which you can access the Azure Machine Learning workspace. You can use the Azure Machine Learning studio to manage all assets and resources within your workspace. To explore the foundation models, you can navigate to the model catalog in the studio.
 
 1. In the Azure portal, navigate to the Azure Machine Learning workspace that starts with **rg-genai-...**.
 1. Select the Azure Machine Learning workspace, and in its **Overview** page, select **Launch studio**. Another tab will open in your browser to open the Azure Machine Learning studio.
-1. Close any pop-ups that appear in the studio.
-1. Navigate to the **Compute** page, using the menu on the left.
-1. Select the **Compute clusters** tab.
-1. Create a **+ New** cluster.
-1. Configure the compute cluster with the following settings:
-    - **Virtual machine tier**: `Low priority`
-    - **Virtual machine type**: `GPU`
-    - **Virtual machine size**: *The cheapest available, for example the `Standard_NC6s_v3*
-    - **Name**: `gpu-cluster`
-    - Keep all other settings at the default value.
-1. Create the compute cluster and verify that it shows up in the list of compute clusters.
-
-## Finetune the model
-
-To finetune the model, you need training data, a compute cluster, and a pretrained model. The script registered a training dataset for you with hotel reviews. You created the necessary compute in the previous section. Now, it's time to choose the pretrained model you want to use and finetune the model.
-
 1. Navigate to the **Model catalog**, using the menu on the left.
-1. Search for and select the `bert-base-uncased` model.
-1. Select **Finetune**.
-1. Select `text classification` for **Select task type**.
-1. **Select dataset** for **Training data**, to open the **Select training data** pop-up.
-1. Select the **Registered datasets** tab.
-1. Select the `hotel-reviews` dataset that was created for you with the setup script.
-1. Select **Next** and wait for the dataset preview to be loaded. You should have two columns: `Text` and `Label`.
-1. Configure the **Required data columns**:
-    - **Select the 'sentence1 key' column**: `Text`
-    - **Select the 'label key' column**: `Label`
-1. Select **Add** to close the pop-up and go back to the finetuning configuration.
-1. Leave the validation and test data at the default settings.
-1. Verify that the compute cluster specifies the `gpu-cluster` that you created during setup.
-1. Select **Finish** to trigger the finetuning job. The job will first prepare the compute cluster, and then finetune the model. The time needed to finetune the model will depend on the cluster you use. You may need to refresh the page to get the latest job status.
 
-## Test the model
-Finally, to test and use the model, you need to register and deploy the model.
+![Screenshot of the model catalog in Azure Machine Learning](./images/model-catalog-overview.png)
 
-### Register the model
-First, you'll register the model from the job's output.
+To explore foundation models in the model catalog, you can use the search bar at the top or scroll through the available models under **Models**.
 
-1. Navigate to the job overview.
-1. Select the **Outputs + logs** tab.
-1. Select **+ Register model**. 
-1. Leave the default settings for the **Model type** (`MLflow`) and **Job output**.
-1. Select **Next**.
-1. In the **Model settings** tab, name the model `hotel-classification-model`.
-1. Select **Next**.
-1. Select **Register**.
+If you don't know which model best fits your needs yet, you can use the filter pane on the right to explore models of a certain category.
 
-### Deploy the model
-Now that the model is registered, you can deploy the model.
+There are two main filters you're likely to use when searching for a foundation model:
 
-1. Navigate to the **Models** page, using the menu on the left of the workspace.
-1. Select the `hotel-classification-model` model.
-1. Select **Deploy**, and select the **Real-time endpoint** option.
-1. Leave all settings at their defaults.
-1. Select **Deploy**.
+- Inference tasks: Filters models on tasks they can do when directly deploying the foundation model. Inference refers to the use of a deployed model.
+- Finetune tasks: Filters models on tasks they can do when fine-tuning foundation models with your own data.
 
-An endpoint will be created first. Then, the registered model will be deployed to the endpoint. The deployment may take some time. Wait until the deployment is complete.
+> **Note**:
+> Some models have different inference and finetune tasks. For example, `bert-base-cased` can be used as is for fill mask tasks, and can be fine-tuned for text classification.
 
-### Test the model
-When the model is successfully deployed, you can test your model. The quickest way to test your model is directly in the Azure Machine Learning Studio.
+Let's explore foundation models based on their inference tasks.
 
-1. Navigate to your endpoint.
-1. Select the **Test** tab.
+### Explore question answering models
 
-    > **Note:**
-    > If the **Test** tab doesn't appear, the deployment isn't finalized yet. Wait until the model is deployed to the endpoint and refresh your page to find the **Test** tab.
+Let's explore question answering models first.
 
-1. Copy and paste the following JSON into the **Input data to test endpoint** field:
+1. Select **Question answering** from the **Inference tasks** options in the filter pane.
+1. Select **Curated by AzureML** from the **Collections** options in the filter pane.
 
-    ```json
-    {"input_data": {"index": [0, 1, 2, 3, 4], "columns": ["text"], "data": [["Contoso Suites exceeded our expectations with their impeccable service and luxurious amenities."], ["The breathtaking mountain views from our room at Alpine Ski House made our stay truly magical."], ["We had a disappointing experience at Margie's Travel due to the lack of cleanliness and outdated facilities."], ["The cozy fireplace in our room at Alpine Ski House created a warm and inviting atmosphere after a day on the slopes."], ["The rooftop pool at Contoso Suites offered a stunning panoramic view of the city, making our stay unforgettable."]]}}
+    Note that all search results include `squad` in the title, referring to the **Stanford Question Answering Dataset**, which consists of a large collection of text passages, along with associated questions and answers. The models shown are the models that are trained on this dataset and therefore ideal for question answering tasks.
+
+1. Select the `distilbert-base-uncased-distilled-squad` model.
+1. Review the description. Optionally, you can select the link to the **original model card** to review more details in the Hugging Face Hub.
+1. To quickly test the model, past the following text into the **Query** field of the **Sample inference** pane:
+
+    ```
+    How does the Amazon Rainforest contribute to regulating the Earth's climate?
     ```
 
-1. Select **Test** to send the input data to the endpoint.
-1. The test result should appear on the right.
-1. Review the output and you'll find that each sentence has been labeled with a classification of the text.
+1. Enter the following text in the **Context** field:
 
-Feel free to experiment and change the text of the hotel reviews to explore the model's classifications.
+    ```
+    The Amazon Rainforest, also known as the "Lungs of the Earth," is a vast tropical rainforest located in South America. It spans across several countries, including Brazil, Peru, and Colombia. The Amazon Rainforest is known for its incredible biodiversity, with millions of plant and animal species calling it home. It also plays a crucial role in regulating the Earth's climate by absorbing and storing carbon dioxide.
+    ```
+
+1. Select **Test** and review the result.
+
+### Explore fill mask models
+
+Now, let's explore models trained with a masked language modelling (MLM) objective.
+
+1. Navigate to the **Model catalog**.
+1. Select **Fill mask** from the **Inference tasks** options in the filter pane.
+1. Select **Curated by AzureML** from the **Collections** options in the filter pane.
+
+    Note that all search results include `bert` (or `roberta`) in the title, referring to the type of model. BERT models use bidirectional encoders, meaning that they use context presented before and after a token. They're trained with a MLM objective, making them ideal for predicting a masked word.
+
+1. Select the `bert-base-uncased` model.
+1. Review the description. Optionally, you can select the link to the **original model card** to review more details in the Hugging Face Hub.
+1. Select the **Test** button in the **Sample inference** pane to test the model with the example query `Paris is the [MASK] of France`.
+1. Change the query to:
+
+    ````
+    [MASK] is a popular sport in Brazil.
+    ```
+
+1. Select the **Test** button again and review the result.
+
+With both examples, the model has no problem predicting what the masked word should be. Whether the necessary context is presented before or after the mask, the result is the same.
+
+### Explore translation models
+
+Finally, let's explore some models that you can use for translating text.
+
+1. Navigate to the **Model catalog**.
+1. Select **Translation** from the **Inference tasks** options in the filter pane.
+1. Select **Curated by AzureML** from the **Collections** options in the filter pane.
+
+    Note that all search results include `t5` in the title, referring to the type of model. T5 models use the Transformer architecture and have an encoder and decoder, allowing them to transfer text-to-text, which is ideal for translation tasks.
+
+1. Select the `t5-small` model.
+1. Review the description. Optionally, you can select the link to the **original model card** to review more details in the Hugging Face Hub.
+1. Select the **Test** button in the **Sample inference** pane to quickly test the model.
+1. Review the result and notice that the text is translated to German.
+    
+    The model can translate text to other languages too. You can specify the input and output language using parameters. Let's deploy the model to a real-time endpoint to explore the use of parameters.
+
+1. Select **Deploy**.
+1. Select **Real-time endpoint**.
+
+> **Important**:
+> You'll only use the endpoint for some quick testing. To minimize costs, you should delete the endpoint when you're done exploring the model.
+
+1. Select the smallest **Virtual machine** available to you.
+1. Change the **Instance count** to `1`.
+1. You'll create a **New** endpoint. Leave all other settings at their default values.
+1. Select the **Deploy** button to create the endpoint and deploy the model to the endpoint. The process may take around 15 minutes.
+
+> **Note**:
+> In this exercise you're using the `t5-small` model which has considerably less parameters than the `t5-large` model. The `t5-small` model may have more inaccurate results, but since it's smaller in size, it'll be cheaper to use.
+
+Azure Machine Learning will first create the endpoint. You can deploy multiple models to one endpoint. After the endpoint is created, the foundation model you selected will be deployed to the endpoint. Since you only have one model deployed to the endpoint, Azure Machine Learning will allocate all (100%) of incoming traffic to the model you selected. If you deploy multiple models to the endpoint, you can specify how much traffic should be allocated to each model.
+
+When the **Provisioning state** of the deployment is **Succeeded**, the endpoint is ready to use.
+
+1. Navigate to the **Test** tab of the endpoint.
+1. Paste the following JSON in the **Input data to test endpoint** field:
+
+    ```json
+    {
+    "inputs": {
+        "input_string": ["My name is John and I live in Seattle", "Berlin is the capital of Germany."]
+    },
+    "parameters": {
+        "task_type": "translation_en_to_fr"
+    }
+    }
+    ```
+
+1. Review the result and notice that the text is now translated to French. Optionally, you can change the input string and the translation parameter to test other examples.
 
 ## Delete Azure resources
 
