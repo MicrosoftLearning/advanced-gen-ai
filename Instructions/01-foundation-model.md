@@ -1,11 +1,13 @@
 ---
 lab:
-    title: 'Fine-tune a foundation model in the Azure Machine Learning studio'
+    title: 'Explore foundation models in Azure Machine Learning's model catalog'
 ---
 
-# Finetune a foundation model in the Azure Machine Learning studio
+# Explore foundation models in Azure Machine Learning's model catalog
 
-Azure Machine Learning provides a data science platform to train and manage machine learning models. In this lab, you'll create an Azure Machine Learning workspace and explore the various ways to work with the workspace. The lab is designed as an introduction of the various core capabilities of Azure Machine Learning and the developer tools. If you want to learn about the capabilities in more depth, there are other labs to explore.
+Large Language Models (LLMs) used for Natural Language Processing (NLP) can be costly to train. To save time and effort, you can use open source models that are pre-trained on a large corpus of text. Many open source LLMs are available as foundation models in the model catalog of Azure Machine Learning.
+
+In this exercise you'll explore the available foundation models in Azure Machine Learning's model catalog. You'll review model cards and their test results to evaluate which model best fits your needs.
 
 ## Before you start
 
@@ -15,7 +17,7 @@ You'll need an [Azure subscription](https://azure.microsoft.com/free?azure-porta
 
 An Azure Machine Learning *workspace* provides a central place for managing all resources and assets you need to train and manage your models. You can interact with the Azure Machine Learning workspace through the studio, Python SDK, and Azure CLI.
 
-You'll use the Azure CLI to provision the workspace and necessary compute, and you'll use the Python SDK to run a command job.
+You'll use the Azure CLI to provision the workspace and necessary compute, and you'll use the studio to explore the model catalog and fine-tune a model.
 
 ### Create the workspace and upload the dataset
 
