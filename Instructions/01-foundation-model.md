@@ -1,3 +1,7 @@
+---
+lab:
+    title: 'Fine-tune a foundation model in the Azure Machine Learning studio'
+---
 
 # Finetune a foundation model in the Azure Machine Learning studio
 
