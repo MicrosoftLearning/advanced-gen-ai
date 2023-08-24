@@ -68,7 +68,7 @@ Let's explore question answering models first.
 1. Review the description. Optionally, you can select the link to the **original model card** to review more details in the Hugging Face Hub.
 1. To quickly test the model, past the following text into the **Query** field of the **Sample inference** pane:
 
-    ```
+    ```md
     How does the Amazon Rainforest contribute to regulating the Earth's climate?
     ```
 
