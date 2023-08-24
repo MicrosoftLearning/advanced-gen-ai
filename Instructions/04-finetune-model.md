@@ -17,7 +17,7 @@ You'll need an [Azure subscription](https://azure.microsoft.com/free?azure-porta
 
 An Azure Machine Learning *workspace* provides a central place for managing all resources and assets you need to train and manage your models. You can interact with the Azure Machine Learning workspace through the studio, Python SDK, and Azure CLI.
 
-You'll use the Azure CLI to provision the workspace and necessary compute, and you'll use the studio to explore the model catalog and fine-tune a model.
+You'll use the Azure CLI to provision the workspace and register a data asset, and you'll use the studio to explore the model catalog and fine-tune a model.
 
 ### Create the workspace and upload the dataset
 
@@ -48,6 +48,7 @@ To create the Azure Machine Learning workspace, and upload the dataset to the wo
 1. Wait for the script to complete - this typically takes around 5-10 minutes.
 
 ### Explore the data
+
 While you wait for the setup script to complete, let's explore the data you'll use to fine-tune a foundation model.
 
 You can use foundation models for different purposes, one of them is to classify text. The data in this exercise contains reviews of hotels that customers may have posted on a website. You may want to classify the sentiment of the hotel reviews. Though you could classify them as simply `positive` or `negative`, you could also create your own labels like `terrible`, `poor`, `average`, `very good`, `excellent`.
@@ -107,9 +108,11 @@ To fine-tune the model, you need training data, a compute cluster, and a pretrai
 1. Select **Finish** to trigger the finetuning job. The job will first prepare the compute cluster, and then fine-tune the model. The time needed to fine-tune the model will depend on the cluster you use. You may need to refresh the page to get the latest job status.
 
 ## Test the model
+
 Finally, to test and use the model, you need to register and deploy the model.
 
 ### Register the model
+
 First, you'll register the model from the job's output.
 
 1. Navigate to the pipeline job overview.
@@ -121,6 +124,7 @@ First, you'll register the model from the job's output.
 1. Select **Register**.
 
 ### Deploy the model
+
 Now that the model is registered, you can deploy the model.
 
 1. Navigate to the **Models** page, using the menu on the left of the workspace.
@@ -131,7 +135,8 @@ Now that the model is registered, you can deploy the model.
 
 An endpoint will be created first. Then, the registered model will be deployed to the endpoint. The deployment may take some time. Wait until the deployment is complete.
 
-### Test the model
+### Test the endpoint
+
 When the model is successfully deployed, you can test your model. The quickest way to test your model is directly in the Azure Machine Learning Studio.
 
 1. Navigate to your endpoint.
