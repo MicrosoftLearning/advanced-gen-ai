@@ -19,10 +19,6 @@ An Azure Machine Learning *workspace* provides a central place for managing all 
 
 You'll provision the workspace through the Azure Portal, from which you can then launch the Azure Machine Learning studio. You'll use the studio to explore the foundation models in the model catalog.
 
-### Create the workspace
-
-To create the Azure Machine Learning workspace, you'll use the Azure Portal.
-
 1. Sign into the `https://portal.azure.com/`.
 2. Create a new **Azure Machine Learning** resource with the following settings:
     - **Subscription**: *Your Azure subscription*
@@ -35,7 +31,7 @@ To create the Azure Machine Learning workspace, you'll use the Azure Portal.
     - **Container registry**: None (*one will be created automatically the first time you deploy a model to a container*)
 3. Wait for the workspace and its associated resources to be created - this typically takes around 5 minutes.
 
-### Explore the model catalog
+## Explore the model catalog
 
 *Azure Machine Learning studio* is a web-based portal through which you can access the Azure Machine Learning workspace. You can use the Azure Machine Learning studio to manage all assets and resources within your workspace. To explore the foundation models, you can navigate to the model catalog in the studio.
 
@@ -59,7 +55,7 @@ There are two main filters you're likely to use when searching for a foundation 
 
 Let's explore foundation models based on their inference tasks.
 
-### Explore question answering models
+## Explore question answering models
 
 Let's explore question answering models first.
 
@@ -84,7 +80,7 @@ Let's explore question answering models first.
 
 1. Select **Test** and review the result.
 
-### Explore fill mask models
+## Explore fill mask models
 
 Now, let's explore models trained with a masked language modelling (MLM) objective.
 
@@ -107,7 +103,7 @@ Now, let's explore models trained with a masked language modelling (MLM) objecti
 
 With both examples, the model has no problem predicting what the masked word should be. Whether the necessary context is presented before or after the mask, the result is the same.
 
-### Explore translation models
+## Explore translation models
 
 Finally, let's explore some models that you can use for translating text.
 
@@ -121,8 +117,10 @@ Finally, let's explore some models that you can use for translating text.
 1. Review the description. Optionally, you can select the link to the **original model card** to review more details in the Hugging Face Hub.
 1. Select the **Test** button in the **Sample inference** pane to quickly test the model.
 1. Review the result and notice that the text is translated to German.
+
+### Deploy the model to a real-time endpoint
     
-    The model can translate text to other languages too. You can specify the input and output language using parameters. Let's deploy the model to a real-time endpoint to explore the use of parameters.
+The model can translate text to other languages too. You can specify the input and output language using parameters. Let's deploy the model to a real-time endpoint to explore the use of parameters.
 
 1. Select **Deploy**.
 1. Select **Real-time endpoint**.
