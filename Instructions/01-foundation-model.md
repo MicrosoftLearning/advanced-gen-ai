@@ -74,7 +74,7 @@ Let's explore question answering models first.
 
 1. Enter the following text in the **Context** field:
 
-    ```
+    ```md
     The Amazon Rainforest, also known as the "Lungs of the Earth," is a vast tropical rainforest located in South America. It spans across several countries, including Brazil, Peru, and Colombia. The Amazon Rainforest is known for its incredible biodiversity, with millions of plant and animal species calling it home. It also plays a crucial role in regulating the Earth's climate by absorbing and storing carbon dioxide.
     ```
 
@@ -95,7 +95,7 @@ Now, let's explore models trained with a masked language modelling (MLM) objecti
 1. Select the **Test** button in the **Sample inference** pane to test the model with the example query `Paris is the [MASK] of France`.
 1. Change the query to:
 
-    ````
+    ```md
     [MASK] is a popular sport in Brazil.
     ```
 
