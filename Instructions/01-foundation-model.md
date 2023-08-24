@@ -1,9 +1,9 @@
 ---
 lab:
-    title: 'Explore foundation models in Azure Machine Learning's model catalog'
+    title: 'Explore foundation models in the model catalog of Azure Machine Learning'
 ---
 
-# Explore foundation models in Azure Machine Learning's model catalog
+# Explore foundation models in the model catalog of Azure Machine Learning
 
 Large Language Models (LLMs) used for Natural Language Processing (NLP) can be costly to train. To save time and effort, you can use open source models that are pre-trained on a large corpus of text. Many open source LLMs are available as foundation models in the model catalog of Azure Machine Learning.
 
