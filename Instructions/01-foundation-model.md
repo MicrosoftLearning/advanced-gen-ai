@@ -138,6 +138,8 @@ The model can translate text to other languages too. You can specify the input a
 
 Azure Machine Learning will first create the endpoint. You can deploy multiple models to one endpoint. After the endpoint is created, the foundation model you selected will be deployed to the endpoint. Since you only have one model deployed to the endpoint, Azure Machine Learning will allocate all (100%) of incoming traffic to the model you selected. If you deploy multiple models to the endpoint, you can specify how much traffic should be allocated to each model.
 
+### Test the deployed translation model
+
 When the **Provisioning state** of the deployment is **Succeeded**, the endpoint is ready to use.
 
 1. Navigate to the **Test** tab of the endpoint.
