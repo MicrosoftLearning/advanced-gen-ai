@@ -35,7 +35,7 @@ You'll provision the workspace through the Azure Portal, from which you can then
 
 *Azure Machine Learning studio* is a web-based portal through which you can access the Azure Machine Learning workspace. You can use the Azure Machine Learning studio to manage all assets and resources within your workspace. To explore the foundation models, you can navigate to the model catalog in the studio.
 
-1. In the Azure portal, navigate to the Azure Machine Learning workspace that starts with **rg-genai-lab**.
+1. In the Azure portal, navigate to the Azure Machine Learning workspace **mlw-genai-lab**.
 1. Select the Azure Machine Learning workspace, and in its **Overview** page, select **Launch studio**. Another tab will open in your browser to open the Azure Machine Learning studio.
 1. Navigate to the **Model catalog**, using the menu on the left.
 
@@ -164,6 +164,6 @@ When you finish exploring Azure Machine Learning, you should delete the resource
 
 - Close the Azure Machine Learning studio tab and return to the Azure portal.
 - In the Azure portal, on the **Home** page, select **Resource groups**.
-- Select the resource group starting with **rg-genai...**.
+- Select the resource group **rg-genai-lab**.
 - At the top of the **Overview** page for your resource group, select **Delete resource group**.
 - Enter the resource group name to confirm you want to delete it, and select **Delete**.
