@@ -119,22 +119,22 @@ Finally, let's explore some models that you can use for translating text.
 1. Review the result and notice that the text is translated to German.
 
 ### Deploy the model to a real-time endpoint
-    
+
 The model can translate text to other languages too. You can specify the input and output language using parameters. Let's deploy the model to a real-time endpoint to explore the use of parameters.
 
 1. Select **Deploy**.
 1. Select **Real-time endpoint**.
 
-> **Important**:
-> You'll only use the endpoint for some quick testing. To minimize costs, you should delete the endpoint when you're done exploring the model.
+    > **Important**:
+    > You'll only use the endpoint for some quick testing. To minimize costs, you should delete the endpoint when you're done exploring the model.
 
-1. Select the smallest **Virtual machine** available to you.
+1. Select the **Virtual machine** with the smallest capacity available to you.
 1. Change the **Instance count** to `1`.
 1. You'll create a **New** endpoint. Leave all other settings at their default values.
 1. Select the **Deploy** button to create the endpoint and deploy the model to the endpoint. The process may take around 15 minutes.
 
-> **Note**:
-> In this exercise you're using the `t5-small` model which has considerably less parameters than the `t5-large` model. The `t5-small` model may have more inaccurate results, but since it's smaller in size, it'll be cheaper to use.
+    > **Note**:
+    > In this exercise you're using the `t5-small` model which has considerably less parameters than the `t5-large` model. The `t5-small` model may have more inaccurate results, but since it's smaller in size, it'll be cheaper to use.
 
 Azure Machine Learning will first create the endpoint. You can deploy multiple models to one endpoint. After the endpoint is created, the foundation model you selected will be deployed to the endpoint. Since you only have one model deployed to the endpoint, Azure Machine Learning will allocate all (100%) of incoming traffic to the model you selected. If you deploy multiple models to the endpoint, you can specify how much traffic should be allocated to each model.
 
