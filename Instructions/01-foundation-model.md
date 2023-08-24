@@ -17,7 +17,7 @@ You'll need an [Azure subscription](https://azure.microsoft.com/free?azure-porta
 
 An Azure Machine Learning *workspace* provides a central place for managing all resources and assets you need to train and manage your models. You can interact with the Azure Machine Learning workspace through the studio, Python SDK, and Azure CLI.
 
-You'll use the Azure CLI to provision the workspace and necessary compute, and you'll use the studio to explore the model catalog and fine-tune a model.
+You'll use the Azure CLI to provision the workspace and necessary data assets, and you'll use the studio to explore the model catalog.
 
 ### Create the workspace and upload the dataset
 
@@ -48,6 +48,7 @@ To create the Azure Machine Learning workspace, and upload the dataset to the wo
 1. Wait for the script to complete - this typically takes around 5-10 minutes.
 
 ### Explore the data
+
 While you wait for the setup script to complete, let's explore the data you'll use to finetune a foundation model.
 
 You can use foundation models for different purposes, one of them is to classify text. The data in this exercise contains reviews of hotels that customers may have posted on a website. You may want to classify the sentiment of the hotel reviews. Though you could classify them as simply `positive` or `negative`, you could also create your own labels like `terrible`, `poor`, `average`, `very good`, `excellent`.
