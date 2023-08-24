@@ -15,43 +15,31 @@ You'll need an [Azure subscription](https://azure.microsoft.com/free?azure-porta
 
 ## Provision an Azure Machine Learning workspace
 
-An Azure Machine Learning *workspace* provides a central place for managing all resources and assets you need to train and manage your models. You can interact with the Azure Machine Learning workspace through the studio, Python SDK, and Azure CLI.
+An Azure Machine Learning *workspace* provides a central place for managing all resources and assets you need to train and manage your models.
 
-You'll use the Azure CLI to provision the workspace and necessary data assets, and you'll use the studio to explore the model catalog.
+You'll provision the workspace through the Azure Portal, from which you can then launch the Azure Machine Learning studio. You'll use the studio to explore the foundation models in the model catalog.
 
-### Create the workspace and upload the dataset
+### Create the workspace
 
-To create the Azure Machine Learning workspace, and upload the dataset to the workspace, you'll use the Azure CLI. All necessary commands are grouped in a Shell script for you to execute.
+To create the Azure Machine Learning workspace, you'll use the Azure Portal.
 
-1. In a browser, open the Azure portal at `https://portal.azure.com/`, signing in with your Microsoft account.
-1. Select the \[>_] (*Cloud Shell*) button at the top of the page to the right of the search box. This opens a Cloud Shell pane at the bottom of the portal.
-1. Select **Bash** if asked. The first time you open the cloud shell, you will be asked to choose the type of shell you want to use (*Bash* or *PowerShell*).
-1. Check that the correct subscription is specified and select **Create storage** if you are asked to create storage for your cloud shell. Wait for the storage to be created.
-1. In the terminal, enter the following commands to clone this repo:
-
-    ```azurecli
-    rm -r gen-ai-labs -f
-    git clone https://github.com/MicrosoftLearning/advanced-gen-ai.git gen-ai-labs
-    ```
-
-    > Use `SHIFT + INSERT` to paste your copied code into the Cloud Shell.
-
-1. After the repo has been cloned, enter the following commands to change to the folder for this lab and run the **setup.sh** script it contains:
-    
-    ```azurecli
-    cd gen-ai-labs/Labs/setup-script
-    ./setup.sh
-    ```
-
-    > Ignore any (error) messages that say that the extensions were not installed.
-
-1. Wait for the script to complete - this typically takes around 5-10 minutes.
+1. Sign into the `https://portal.azure.com/`.
+2. Create a new **Azure Machine Learning** resource with the following settings:
+    - **Subscription**: *Your Azure subscription*
+    - **Resource group**: `rg-genai-lab`
+    - **Workspace name**: `mlw-genai-lab`
+    - **Region**: *Select the geographical region closest to you*
+    - **Storage account**: *Note the default new storage account that will be created for your workspace*
+    - **Key vault**: *Note the default new key vault that will be created for your workspace*
+    - **Application insights**: *Note the default new application insights resource that will be created for your workspace*
+    - **Container registry**: None (*one will be created automatically the first time you deploy a model to a container*)
+3. Wait for the workspace and its associated resources to be created - this typically takes around 5 minutes.
 
 ### Explore the model catalog
 
 *Azure Machine Learning studio* is a web-based portal through which you can access the Azure Machine Learning workspace. You can use the Azure Machine Learning studio to manage all assets and resources within your workspace. To explore the foundation models, you can navigate to the model catalog in the studio.
 
-1. In the Azure portal, navigate to the Azure Machine Learning workspace that starts with **rg-genai-...**.
+1. In the Azure portal, navigate to the Azure Machine Learning workspace that starts with **rg-genai-lab**.
 1. Select the Azure Machine Learning workspace, and in its **Overview** page, select **Launch studio**. Another tab will open in your browser to open the Azure Machine Learning studio.
 1. Navigate to the **Model catalog**, using the menu on the left.
 
@@ -63,8 +51,8 @@ If you don't know which model best fits your needs yet, you can use the filter p
 
 There are two main filters you're likely to use when searching for a foundation model:
 
-- Inference tasks: Filters models on tasks they can do when directly deploying the foundation model. Inference refers to the use of a deployed model.
-- Finetune tasks: Filters models on tasks they can do when fine-tuning foundation models with your own data.
+- **Inference tasks**: Filters models on tasks they can do when directly deploying the foundation model. Inference refers to the use of a deployed model.
+- **Finetune tasks**: Filters models on tasks they can do when fine-tuning foundation models with your own data.
 
 > **Note**:
 > Some models have different inference and finetune tasks. For example, `bert-base-cased` can be used as is for fill mask tasks, and can be fine-tuned for text classification.
