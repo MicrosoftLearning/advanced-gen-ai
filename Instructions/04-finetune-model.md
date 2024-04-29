@@ -92,8 +92,11 @@ By finetuning a model with the provided dataset, you'll be able to classify hote
 To fine-tune the model, you need training data, a compute cluster, and a pretrained model. The script registered a training dataset for you with hotel reviews. You created the necessary compute in the previous section. Now, it's time to choose the pretrained model you want to use and fine-tune the model.
 
 1. Navigate to the **Model catalog**, using the menu on the left.
-1. Search for and select the `bert-base-uncased` model.
-1. Select **Finetune**.
+1. Search for the `bert-base-uncased` model.
+1. Filter by the **Curated by Azure AI** collection.
+1. Filter by **Text classification** under **Fine-tuning tasks**.
+1. Select the **bert-base-uncased** model.
+1. Select **Fine-tune**.
 1. Select `text classification` for **Select task type**.
 1. **Select dataset** for **Training data**, to open the **Select training data** pop-up.
 1. Select the **Registered datasets** tab.
