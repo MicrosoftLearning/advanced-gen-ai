@@ -1,6 +1,13 @@
 ---
 lab:
-    title: 'Fine-tune a foundation model in the Azure Machine Learning studio'
+  title: Fine-tune a foundation model in the Azure Machine Learning studio
+  description: In this exercise you'll choose a foundation model from Azure Machine Learning's model catalog. You'll use a small dataset to fine-tune the model and you'll deploy the model to an endpoint. Finally, you can test your deployed model by sending new data to the endpoint.
+  duration: 10 minutes
+  level: 400
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure Machine Learning
 ---
 
 # Fine-tune a foundation model in the Azure Machine Learning studio
