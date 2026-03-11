@@ -1,6 +1,13 @@
 ---
 lab:
-    title: 'Explore foundation models in the model catalog of Azure Machine Learning'
+  title: Explore foundation models in the model catalog of Azure Machine Learning
+  description: In this exercise you'll explore the available foundation models in Azure Machine Learning's model catalog. You'll review model cards and their test results to evaluate which model best fits your needs.
+  duration: 5 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure Machine Learning
 ---
 
 # Explore foundation models in the model catalog of Azure Machine Learning
