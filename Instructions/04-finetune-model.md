@@ -1,6 +1,17 @@
 ---
 lab:
-    title: 'Fine-tune a foundation model in the Azure Machine Learning studio'
+  title: Fine-tune a foundation model in the Azure Machine Learning studio
+  description: When you want to improve a model that processes natural language, you
+    may try to fine-tune a foundation model. A foundation model is already pre-trained
+    on a large corpus of text, meaning you'll spend considerably less time fine-tuning
+    the model to accommodate your needs than when you would train a completely new
+    model from scratch.
+  duration: 10 minutes
+  level: 400
+  islab: true
+  primarytopics:
+  - Azure
+  - Azure Machine Learning
 ---
 
 # Fine-tune a foundation model in the Azure Machine Learning studio
